@@ -1,17 +1,17 @@
-// Import the necessary modules
-import { Response } from 'https://deno.land/x/servest/mod.ts';
-
 export async function GET(req) {
+  // Set CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
 
+  // Check if the request is a preflight request (OPTIONS)
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers });
   }
 
+  // Define your API response data
   const data = [
     {
       "name": "new post",
