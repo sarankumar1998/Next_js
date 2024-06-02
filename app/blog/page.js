@@ -1,14 +1,13 @@
 import React from 'react';
 
 async function fetchData() {
-  const res = await fetch('http://localhost:3000/api/items');
-  const resJson = await res.json();
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/items`); 
+    const resJson = await res.json();
   return resJson;
 }
 
 export default async function Page() {
   const users = await fetchData();
-  console.log(users, 'users');
   
   return (
     <div>
