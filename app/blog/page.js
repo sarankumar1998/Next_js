@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 async function fetchData() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/items`); 
+    const datafetch = process.env.NEXT_PUBLIC_API_URL + '/api/items';
+    const res = await fetch(datafetch); 
     const resJson = await res.json();
   return resJson;
 }
