@@ -7,10 +7,11 @@ export default function Page() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/items')
-            .then((res) => res.json()) // Parse JSON response
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL + '/api/items';
+        fetch(apiUrl)
+            .then((res) => res.json()) 
             .then((data) => {
-                setGetData(data); // Set data to state
+                setGetData(data); 
                 setLoading(false);
             })
             .catch((err) => {
